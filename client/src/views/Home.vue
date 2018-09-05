@@ -9,10 +9,10 @@
           width="300px"
         >
         <blockquote>
-          &#8220;Fuck em till they dead.&#8221;
+          &#8220; It takes 20 years to build a reputation and 5 minutes to ruin it.&#8221;
           <footer>
             <small>
-              <em>&mdash;Blaze Huega</em>
+              <em>&mdash;Peyton Manning</em>
             </small>
           </footer>
         </blockquote>
@@ -24,7 +24,7 @@
 
 <script>
 import SoundButton from '@/components/SoundButton';
-const API_URL = 'http://localhost:3000/sounds';
+const API_URL = 'https://broncos-soundboard.herokuapp.com/sounds';
 
 export default {
   name: 'Home',
