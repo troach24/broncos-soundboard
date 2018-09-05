@@ -16,26 +16,21 @@
             </small>
           </footer>
         </blockquote>
-        <v-btn
-          round
-          color="secondary"
-          dark
-          @click="playSound(sounds[0].soundUrl)"
-        >
-        <!-- {{sounds[0].name}} -->
-        DFW
-        </v-btn>
-        <!-- <v-btn round color="secondary" dark>Rounded Button</v-btn> -->
+        <SoundButton :playSound="playSound" :sounds="sounds" />
       </v-layout>
     </v-slide-y-transition>
   </v-container>
 </template>
 
 <script>
+import SoundButton from '@/components/SoundButton';
 const API_URL = 'http://localhost:3000/sounds';
 
 export default {
   name: 'Home',
+  components: {
+    SoundButton
+  },
   data: () => {
     return {
       sounds: [],

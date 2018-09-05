@@ -1,82 +1,25 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      persistent
-      :mini-variant="miniVariant"
-      clipped
-      v-model="drawer"
-      enable-resize-watcher
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-tile
-          value="true"
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar
-      app
-      :clipped-left="clipped"
-    >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>menu</v-icon>
-      </v-btn>
-    </v-toolbar>
+    <NavBar />
     <v-content>
       <router-view/>
     </v-content>
-    <v-navigation-drawer
-      :right="right"
-      v-model="rightDrawer"
-      fixed
-      app
-      clipped
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <!-- <v-footer :fixed="fixed" app> -->
-    <v-footer fixed app>
-      <span>&copy; 2018</span>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
 <script>
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 export default {
   name: 'App',
+  components: {
+    NavBar,
+    Footer,
+  },
   data () {
     return {
-      clipped: true,
-      drawer: true,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
-      miniVariant: false,
-      right: true,
-      rightDrawer: true,
-      title: 'BRONCO BITES'
     }
   }
 }
