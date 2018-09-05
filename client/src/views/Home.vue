@@ -39,6 +39,7 @@ export default {
   mounted() {
     fetch(API_URL).then(response => response.json()).then(result => {
       this.sounds = result
+      console.log(result)
     })
   },
   methods: {
