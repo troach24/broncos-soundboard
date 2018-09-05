@@ -2,7 +2,8 @@ const Joi = require('joi');
 const db = require('./connection');
 
 const schema = Joi.object().keys({
-  name: Joi.string().alphanum().required(),
+  name: Joi.string().required(),
+  category: Joi.string().required(),
   soundUrl: Joi.string().uri({
     scheme: [
       /https?/
@@ -24,6 +25,10 @@ function createSound(sound) {
   } else {
     return Promise.reject(result.error);
   }
+}
+
+function updateSound(sound) {
+
 }
 
 module.exports = {
