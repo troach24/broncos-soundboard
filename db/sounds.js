@@ -20,7 +20,7 @@ function createSound(sound) {
   const result = Joi.validate(sound, schema);
   if (result.error == null) {
     sound.created = new Date();
-    return sounds.insertOne(sound);
+    return sounds.insert(sound);
   } else {
     return Promise.reject(result.error);
   }
