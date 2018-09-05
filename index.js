@@ -33,6 +33,17 @@ app.post('/sounds', (req, res) => {
   });
 });
 
+app.delete('/sounds', (req, res) => {
+  res.json({
+    message: 'Yeah right!'
+  }).catch((error) => {
+    res.status(500);
+    res.json({
+      message: 'Yeah right!'
+    });
+  })
+})
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
