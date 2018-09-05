@@ -20,8 +20,9 @@
           round
           color="secondary"
           dark
-          @click.prevent="playSound('https://docs.google.com/uc?export=download&id=1Rte2cxwzIg6yv1gx4HGAr3nWxHPkDY_m')"
+          @click="playSound(sounds[0].soundUrl)"
         >
+        <!-- {{sounds[0].name}} -->
         DFW
         </v-btn>
         <!-- <v-btn round color="secondary" dark>Rounded Button</v-btn> -->
@@ -31,7 +32,20 @@
 </template>
 
 <script>
-export default{
+const API_URL = 'http://localhost:3000/sounds';
+
+export default {
+  name: 'Home',
+  data: () => {
+    return {
+      sounds: [],
+    }
+  },
+  mounted() {
+    fetch(API_URL).then(response => response.json()).then(result => {
+      this.sounds = result
+    })
+  },
   methods: {
     playSound (sound) {
       if(sound) {
@@ -39,7 +53,7 @@ export default{
         audio.play();
       }
     }
-  }
+  },
 }
 </script>
 
