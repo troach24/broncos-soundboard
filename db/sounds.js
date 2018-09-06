@@ -27,11 +27,20 @@ function createSound(sound) {
   }
 }
 
-function updateSound(sound) {
+function findById(id) {  
+  return sounds.findOne({"_id": id}).then(sound => sound)
+}
 
+function updateSound(id, obj) {  
+  return sounds.findOneAndUpdate({"_id": id}, obj).then(sound => {
+    // console.log(sound);
+    return sound;
+  })
 }
 
 module.exports = {
   getAll,
-  createSound
+  createSound,
+  findById,
+  updateSound
 };
