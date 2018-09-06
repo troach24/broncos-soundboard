@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-slide-y-transition mode="out-in">
+    <!-- <v-slide-y-transition mode="out-in"> -->
       <v-layout column align-center>
         <img
           src="https://s3.amazonaws.com/freebiesupply/large/2x/denver-broncos-logo-transparent.png"
@@ -8,17 +8,25 @@
           class="mb-1"
           width="300px"
         >
-        <blockquote>
+        <h5 class="headline">Team</h5>
+        <ul>
+          <SoundButton
+          :key="index"
+          v-for="(sound, index) in sounds"
+          :playSound="playSound"
+          :sound="sound"
+          :sounds="sounds" />
+        </ul>
+        <!-- <blockquote>
           &#8220; It takes 20 years to build a reputation and 5 minutes to ruin it.&#8221;
           <footer>
             <small>
               <em>&mdash;Peyton Manning</em>
             </small>
           </footer>
-        </blockquote>
-        <SoundButton :playSound="playSound" :sounds="sounds" />
+        </blockquote> -->
       </v-layout>
-    </v-slide-y-transition>
+    <!-- </v-slide-y-transition> -->
   </v-container>
 </template>
 
