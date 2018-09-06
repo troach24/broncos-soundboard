@@ -1,21 +1,20 @@
 <template>
-  <v-container>
+  <li>
     <v-btn
       round
       color="secondary"
       dark
-      @click="playSound(sounds[0].soundUrl)"
+      @click="playSound(sound.soundUrl)"
     >
-    <!-- {{sounds[0].name}} -->
-    DFW
+    {{sound.name}}
     </v-btn>
-  </v-container>
+  </li>
 </template>
 
 <script>
 export default {
   name: 'SoundButton',
-  props: ['playSound', 'sounds'],
+  props: ['playSound', 'sounds', 'sound'],
 }
 </script>
 
