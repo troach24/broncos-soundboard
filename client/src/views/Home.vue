@@ -17,6 +17,7 @@
           :sound="sound"
           :sounds="sounds" />
         </ul>
+        <ExpansionPanel />
         <!-- <blockquote>
           &#8220; It takes 20 years to build a reputation and 5 minutes to ruin it.&#8221;
           <footer>
@@ -32,12 +33,15 @@
 
 <script>
 import SoundButton from '@/components/SoundButton';
+import ExpansionPanel from '@/components/ExpansionPanel';
+
 const API_URL = 'https://broncos-soundboard.herokuapp.com/sounds';
 
 export default {
   name: 'Home',
   components: {
-    SoundButton
+    SoundButton,
+    ExpansionPanel
   },
   data: () => {
     return {
