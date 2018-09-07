@@ -2,7 +2,7 @@
   <li>
     <v-btn
       round
-      color="secondary"
+      color="#FB4F14"
       dark
       @click="playSound(sound.soundUrl)"
     >
