@@ -1,27 +1,19 @@
 <template>
   <v-container fluid>
-    <!-- <v-slide-y-transition mode="out-in"> -->
+    <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
         <img
           src="https://s3.amazonaws.com/freebiesupply/large/2x/denver-broncos-logo-transparent.png"
           alt="Vuetify.js"
           class="mb-1"
-          width="300px"
+          width="325px"
         >
         <ExpansionPanel 
           :playSound="playSound"
           :sounds="sounds"
         />
-        <!-- <blockquote>
-          &#8220; It takes 20 years to build a reputation and 5 minutes to ruin it.&#8221;
-          <footer>
-            <small>
-              <em>&mdash;Peyton Manning</em>
-            </small>
-          </footer>
-        </blockquote> -->
       </v-layout>
-    <!-- </v-slide-y-transition> -->
+    </v-slide-y-transition>
   </v-container>
 </template>
 
@@ -56,7 +48,19 @@ export default {
         var audio = new Audio(sound);
         audio.play();
       }
-    }
+    },
+    sortArr(arr) {
+      return arr.sort((a, b) => {
+        var categoryA = a.category.toUpperCase()
+        var categoryB = b.category.toUpperCase()
+        if(categoryA < categoryB) {
+          return -1
+        } if(categoryA > categoryB) {
+          return 1
+        }
+        return 0
+      })
+    },
   },
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <li>
     <v-btn
+      class="button-width"
       round
       color="#FB4F14"
       dark
@@ -19,5 +20,8 @@ export default {
 </script>
 
 <style scoped>
-
+.button-width {
+  width: 225px;
+  /* width: 75%; */
+}
 </style>
