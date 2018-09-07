@@ -5,10 +5,9 @@
       round
       color="#FB4F14"
       dark
-      @click="playSound(sound.soundUrl)"
-      v-touch:tap="playSound(sound.soundUrl)"
-      @touch.prevent="playSound(sound.soundUrl)"
+      @click.native="playSound(sound.soundUrl)"
     >
+      <!-- @click="playSound(sound.soundUrl)" -->
     {{sound.name}}
     </v-btn>
   </li>
