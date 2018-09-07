@@ -7,6 +7,7 @@
       dark
       @click="playSound(sound.soundUrl)"
       v-touch:tap="playSound(sound.soundUrl)"
+      @touch.prevent="playSound(sound.soundUrl)"
     >
     {{sound.name}}
     </v-btn>
