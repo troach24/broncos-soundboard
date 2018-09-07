@@ -9,6 +9,7 @@
       <v-tooltip bottom>
         <v-icon
           @click="playSound('https://docs.google.com/uc?export=download&id=1GZ12yMxO3PFIQqdhpjdXn1M-L3no6hbP')"
+          v-touch="playSound('https://docs.google.com/uc?export=download&id=1GZ12yMxO3PFIQqdhpjdXn1M-L3no6hbP')"
           slot="activator"
           color="#FB4F14"
           dark large
