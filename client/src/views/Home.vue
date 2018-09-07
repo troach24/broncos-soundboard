@@ -6,7 +6,7 @@
           src="https://s3.amazonaws.com/freebiesupply/large/2x/denver-broncos-logo-transparent.png"
           alt="Vuetify.js"
           class="mb-1"
-          width="325px"
+          width="250px"
         >
         <ExpansionPanel 
           :playSound="playSound"
@@ -40,6 +40,7 @@ export default {
   mounted() {
     fetch(API_URL).then(response => response.json()).then(result => {
       this.sounds = result
+      this.sounds.reverse()
     })
   },
   methods: {
@@ -65,7 +66,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
   font-weight: normal;
