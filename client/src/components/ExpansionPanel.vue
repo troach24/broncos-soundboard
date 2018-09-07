@@ -1,8 +1,8 @@
 <template>
   <div class="panel-container">
     <div class="d-flex justify-between align-center mb-3">
-      <v-btn @click="all">all</v-btn>
-      <v-btn @click="none">none</v-btn>
+      <v-btn @click="all">Show All</v-btn>
+      <v-btn @click="none">Hide All</v-btn>
     </div>
     <v-expansion-panel
       v-model="panel"
