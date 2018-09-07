@@ -6,6 +6,7 @@
       color="#FB4F14"
       dark
       @click="playSound(sound.soundUrl)"
+      v-touch:tap="playSound(sound.soundUrl)"
     >
     {{sound.name}}
     </v-btn>
