@@ -8,16 +8,10 @@
           class="mb-1"
           width="300px"
         >
-        <h5 class="headline">Team</h5>
-        <ul>
-          <SoundButton
-          :key="index"
-          v-for="(sound, index) in sounds"
+        <ExpansionPanel 
           :playSound="playSound"
-          :sound="sound"
-          :sounds="sounds" />
-        </ul>
-        <ExpansionPanel />
+          :sounds="sounds"
+        />
         <!-- <blockquote>
           &#8220; It takes 20 years to build a reputation and 5 minutes to ruin it.&#8221;
           <footer>
@@ -41,17 +35,19 @@ export default {
   name: 'Home',
   components: {
     SoundButton,
-    ExpansionPanel
+    ExpansionPanel,
   },
   data: () => {
     return {
       sounds: [],
-    }
+      team: [],
+      offense: [],
+      defense: [],
+    };
   },
   mounted() {
     fetch(API_URL).then(response => response.json()).then(result => {
       this.sounds = result
-      console.log(this.sounds)
     })
   },
   methods: {
@@ -80,5 +76,8 @@ li {
 }
 a {
   color: #42b983;
+}
+#john-button {
+  color: #FB4F14;
 }
 </style>
