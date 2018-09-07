@@ -19,30 +19,13 @@
             <SoundButton
               :key="index"
               v-for="(sound, index) in sounds"
-              v-if="sound.category === 'Team' && i == 0"
+              v-if="sound.category === 'Team' && i === 0
+                || sound.category === 'Offense' && i === 1
+                || sound.category === 'Defense' && i === 2"
               :playSound="playSound"
               :sound="sound"
               :sounds="sounds"
             />
-            <SoundButton
-              :key="index"
-              v-for="(sound, index) in sounds"
-              v-if="sound.category === 'Offense' && i == 1"
-              :playSound="playSound"
-              :sound="sound"
-              :sounds="sounds"
-            />
-            <SoundButton
-              :key="index"
-              v-for="(sound, index) in sounds"
-              v-if="sound.category === 'Defense' && i == 2"
-              :playSound="playSound"
-              :sound="sound"
-              :sounds="sounds"
-            />
-          <!-- <v-card-text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </v-card-text> -->
         </v-card>
       </v-expansion-panel-content>
     </v-expansion-panel>
@@ -79,11 +62,12 @@ export default {
 
 <style scoped>
 .panel-container {
-  width: 60%;
+  width: 75%;
 }
 .panel {
   display: flex;
   flex-flow: row wrap;
-  /* justify-content: space-around; */
+  padding-left: 5px;
+  padding-bottom: 10px;
 }
 </style>
