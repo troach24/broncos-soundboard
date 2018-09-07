@@ -4,16 +4,17 @@
       app
       :clipped-left="clipped"
     >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-    <v-btn
-      id="john-button"
-      color="#FB4F14"
-      @click="playSound('https://docs.google.com/uc?export=download&id=1GZ12yMxO3PFIQqdhpjdXn1M-L3no6hbP')"
-    >
-      Greatest 8 YD Run in SB History
-    </v-btn>
+      <v-tooltip bottom>
+        <v-icon
+          @click="playSound('https://docs.google.com/uc?export=download&id=1GZ12yMxO3PFIQqdhpjdXn1M-L3no6hbP')"
+          slot="activator"
+          color="#FB4F14"
+          dark large
+        >crop_rotate</v-icon>
+        <span>Greatest 8 YD Run in SB History</span>
+      </v-tooltip>
     </v-toolbar>
   </div>
 </template>
@@ -46,7 +47,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-
-</style>
