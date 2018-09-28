@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.49",
+    "hammerjs": "^2.0.8",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
-    "vue2-touch-events": "^1.0.0",
+    "vue-touch": "^2.0.0-beta.4",
     "vuetify": "^1.2.3"
   },
   "devDependencies": {

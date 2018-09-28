@@ -11,6 +11,7 @@
         <ExpansionPanel 
           :playSound="playSound"
           :sounds="sounds"
+          :loading="loading"
         />
       </v-layout>
     </v-slide-y-transition>
@@ -35,13 +36,17 @@ export default {
       team: [],
       offense: [],
       defense: [],
+      loading: false,
     };
   },
   mounted() {
-    fetch(API_URL).then(response => response.json()).then(result => {
-      this.sounds = result
-      this.sounds.reverse()
-    })
+    fetch(API_URL)
+      .then(response => response.json())
+      .then(result => {
+        this.sounds = result
+        this.sounds.reverse()
+        this.sounds.length < 1 ? this.loading = true : this.loading = false
+      })
   },
   methods: {
     playSound (sound) {

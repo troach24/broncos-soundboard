@@ -16,16 +16,24 @@
         <h5 class="headline" v-if="i == 1" slot="header">Offense</h5>
         <h5 class="headline" v-if="i == 2" slot="header">Defense</h5>
         <v-card class="panel">
-            <SoundButton
-              :key="index"
-              v-for="(sound, index) in sounds"
-              v-if="sound.category === 'Team' && i === 0
-                || sound.category === 'Offense' && i === 1
-                || sound.category === 'Defense' && i === 2"
-              :playSound="playSound"
-              :sound="sound"
-              :sounds="sounds"
-            />
+          <v-flex class="load" v-if="loading">
+            <v-progress-circular
+              :size="70"
+              :width="7"
+              color="#FB4F14"
+              indeterminate
+            ></v-progress-circular>
+          </v-flex>
+          <SoundButton
+            :key="index"
+            v-for="(sound, index) in sounds"
+            v-if="sound.category === 'Team' && i === 0
+              || sound.category === 'Offense' && i === 1
+              || sound.category === 'Defense' && i === 2"
+            :playSound="playSound"
+            :sound="sound"
+            :sounds="sounds"
+          />
         </v-card>
       </v-expansion-panel-content>
     </v-expansion-panel>
@@ -39,11 +47,11 @@ export default {
   components: {
     SoundButton,
   },
-  props: ['playSound', 'sounds', 'sound'],
+  props: ['playSound', 'sounds', 'sound', 'loading'],
   data () {
     return {
       panel: [],
-      items: 3
+      items: 3,
     }
   },
   methods: {
@@ -69,5 +77,9 @@ export default {
   flex-flow: row wrap;
   padding-left: 5px;
   padding-bottom: 10px;
+}
+.load {
+  display: flex;
+  justify-content: center;
 }
 </style>

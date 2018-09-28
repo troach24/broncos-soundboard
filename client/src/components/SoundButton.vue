@@ -7,13 +7,14 @@
       dark
       @click.native="playSound(sound.soundUrl)"
     >
-      <!-- @click="playSound(sound.soundUrl)" -->
+    <!-- <v-touch tag="a" v-on:tap="playSound(sound.soundUrl)"></v-touch> -->
     {{sound.name}}
     </v-btn>
   </li>
 </template>
 
 <script>
+
 export default {
   name: 'SoundButton',
   props: ['playSound', 'sounds', 'sound'],
