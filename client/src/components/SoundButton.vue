@@ -7,7 +7,6 @@
       dark
       @click.native="playSound(sound.soundUrl)"
     >
-    <!-- <v-touch tag="a" v-on:tap="playSound(sound.soundUrl)"></v-touch> -->
     {{sound.name}}
     </v-btn>
   </li>
