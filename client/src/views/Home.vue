@@ -26,6 +26,7 @@ const API_URL = 'https://broncos-soundboard.herokuapp.com/sounds';
 
 export default {
   name: 'Home',
+  // props: ['user'],
   components: {
     SoundButton,
     ExpansionPanel,
@@ -40,6 +41,7 @@ export default {
     };
   },
   mounted() {
+    // console.log(user)
     fetch(API_URL)
       .then(response => response.json())
       .then(result => {
