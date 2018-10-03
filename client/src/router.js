@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import firebase from 'firebase';
 
 Vue.use(Router);
 
@@ -15,6 +16,11 @@ export default new Router({
       component: () => import('./views/Home.vue'),
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue'),
+    },
+    {
       path: '/admin',
       name: 'admin',
       component: () => import('./views/Admin.vue'),
@@ -22,10 +28,9 @@ export default new Router({
         requiresAuth: true,
       },
     },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('./views/Login.vue'),
-    },
   ],
+});
+
+Router.beforeEach((to, from, next) => {
+  const currentUser = firebase.auth().currentUser;
 });
