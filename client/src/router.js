@@ -6,6 +6,10 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+      path: '*',
+      redirect: '/',
+    },
+    {
       path: '/',
       name: 'home',
       component: () => import('./views/Home.vue'),
@@ -14,19 +18,14 @@ export default new Router({
       path: '/admin',
       name: 'admin',
       component: () => import('./views/Admin.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/login',
       name: 'login',
       component: () => import('./views/Login.vue'),
     },
-    // {
-    //   path: '/expand',
-    //   name: 'expand',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './components/ExpansionPanel.vue'),
-    // },
   ],
 });

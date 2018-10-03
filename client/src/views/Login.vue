@@ -14,6 +14,7 @@
           required
         ></v-text-field>
         <v-text-field
+          v-model="password"
           :append-icon="showPassword ? 'visibility_off' : 'visibility'"
           :passwordRules="[passwordRules.required, passwordRules.min]"
           :type="showPassword ? 'text' : 'password'"
@@ -27,7 +28,7 @@
           id="login-button"
           color="#FB4F14"
           :disabled="!valid"
-          @click="submit"
+          @click.prevent="submit"
         >
           Login
         </v-btn>
@@ -37,6 +38,7 @@
 </template>
 
 <script>
+import firebase from 'firebase';
 
 export default {
   data: () => ({
@@ -54,20 +56,22 @@ export default {
       emailMatch: () => ('The email and password you entered don\'t match')
     }
   }),
-
   methods: {
     submit () {
       if (this.$refs.form.validate()) {
-        // Native form submission is not yet supported
-        axios.post('/api/submit', {
-          email: this.email,
-          password: this.password,
-        })
+        console.log(this.email, this.password)
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
+          console.log('authorized')
+          this.$router.push('admin')
+        }).catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+        });
       }
     },
     clear () {
       this.$refs.form.reset()
-    }
+    },
   }
 }
 </script>
