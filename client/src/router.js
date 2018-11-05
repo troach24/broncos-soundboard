@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+// import firebase from 'firebase';
 
 Vue.use(Router);
 
@@ -29,3 +30,5 @@ export default new Router({
     },
   ],
 });
+
+// maybe implement a 'before each' router checker for global 'user' value

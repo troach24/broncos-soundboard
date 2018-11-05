@@ -8,6 +8,7 @@
       v-model="panel"
       expand
     >
+        <!-- v-if="!loading" -->
       <v-expansion-panel-content
         v-for="(item,i) in items"
         :key="i"
@@ -28,8 +29,8 @@
             :key="index"
             v-for="(sound, index) in sounds"
             v-if="sound.category === 'Team' && i === 0
-              || sound.category === 'Offense' && i === 1
-              || sound.category === 'Defense' && i === 2"
+            || sound.category === 'Offense' && i === 1
+            || sound.category === 'Defense' && i === 2"
             :playSound="playSound"
             :sound="sound"
             :sounds="sounds"

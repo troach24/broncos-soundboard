@@ -40,15 +40,13 @@ export default {
       loading: false,
     };
   },
-  mounted() {
-    // console.log(user)
-    fetch(API_URL)
-      .then(response => response.json())
-      .then(result => {
-        this.sounds = result
-        this.sounds.reverse()
-        this.sounds.length < 1 ? this.loading = true : this.loading = false
-      })
+  async mounted() {
+    if(this.sounds.length < 1) {
+      this.loading = true;
+      this.sounds = await this.getSounds()
+      this.sounds.reverse()
+    }
+    this.loading = false
   },
   methods: {
     playSound (sound) {
@@ -69,6 +67,10 @@ export default {
         return 0
       })
     },
+    async getSounds() {
+      const res = await fetch(API_URL)
+      return res.json()
+    }
   },
 }
 </script>

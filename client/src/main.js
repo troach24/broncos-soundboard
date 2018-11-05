@@ -6,7 +6,7 @@ import HammerJS from 'hammerjs';
 import firebase from 'firebase/app';
 import App from './App.vue';
 import router from './router';
-import API from './API.js';
+import API from './API';
 
 const VueTouch = require('vue-touch');
 
