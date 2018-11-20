@@ -33,7 +33,6 @@ function findById(id) {
 
 function updateSound(id, obj) {  
   return sounds.findOneAndUpdate({"_id": id}, obj).then(sound => {
-    // console.log(sound);
     return sound;
   })
 }
