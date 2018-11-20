@@ -8,10 +8,14 @@
 import firebase from 'firebase';
 
 export default {
-  beforeRouteEnter (to, from, next) {
-    // check if user is logged in before loading admin view
-    if(firebase.auth().currentUser === null) {
-      this.$router.push('login')
+  methods: {
+    beforeRouteEnter() {
+    console.log(firebase.auth().currentUser.emailVerified)
+      if(!firebase.auth().currentUser) {
+        this.$router.push('login')
+      } else {
+        console.log('yaKnoDeG');
+      }
     }
   }
 };
