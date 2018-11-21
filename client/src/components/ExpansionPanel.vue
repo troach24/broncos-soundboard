@@ -8,7 +8,6 @@
       v-model="panel"
       expand
     >
-        <!-- v-if="!loading" -->
       <v-expansion-panel-content
         v-for="(item,i) in items"
         :key="i"

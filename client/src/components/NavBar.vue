@@ -4,10 +4,11 @@
       app
       :clipped-left="clipped"
     >
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <router-link id="app-title" :to="'home'">
+        <v-toolbar-title v-text="title"></v-toolbar-title>
+      </router-link>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
-          <!-- @click="playSound('https://docs.google.com/uc?export=download&id=1GZ12yMxO3PFIQqdhpjdXn1M-L3no6hbP')" -->
         <v-icon
           @click.native="playSound('https://docs.google.com/uc?export=download&id=1GZ12yMxO3PFIQqdhpjdXn1M-L3no6hbP')"
           slot="activator"
@@ -48,3 +49,11 @@ export default {
   },
 };
 </script>
+
+<style>
+  #app-title {
+    text-decoration: none;
+    color: white;
+  }
+</style>
+

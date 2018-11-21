@@ -59,7 +59,6 @@ export default {
   methods: {
     submit () {
       if (this.$refs.form.validate()) {
-        console.log(this.email, this.password)
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
           console.log('authorized')
           this.$router.push('admin')

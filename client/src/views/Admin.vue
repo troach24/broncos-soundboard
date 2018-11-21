@@ -1,6 +1,8 @@
 <template>
   <v-container fluid>
-    <h1 class="container">Admin Page 🙌</h1>
+    <v-layout column align-center>
+      <h1>Welcome Web Master, you are the greatest Broncos Fan in the world! 🙌</h1>
+    </v-layout>
   </v-container>
 </template>
 
@@ -9,23 +11,14 @@ import firebase from 'firebase';
 
 export default {
   beforeRouteEnter (to, from, next) {
-    console.log(firebase.auth().currentUser.emailVerified)
     if(!firebase.auth().currentUser) {
-      this.$router.push('login')
+      next('login')
     } else {
-      console.log('yaKnoDeG');
+      next()
     }
-    next()
   },
   methods: {
-    // beforeRouteEnter() {
-    //   console.log(firebase.auth().currentUser.emailVerified)
-      // if(!firebase.auth().currentUser) {
-      //   this.$router.push('login')
-      // } else {
-      //   console.log('yaKnoDeG');
-      // }
-    // }
+
   }
 };
 </script>
