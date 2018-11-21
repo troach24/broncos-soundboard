@@ -8,7 +8,7 @@
         <v-toolbar-title v-text="title"></v-toolbar-title>
       </router-link>
       <v-spacer></v-spacer>
-      <v-chip outline color="#FB4F14">Toggle Edit Mode</v-chip>
+      <v-chip v-if="$route.name == 'admin'" outline color="#FB4F14">Toggle Edit Mode</v-chip>
       <v-tooltip bottom>
         <v-icon
           v-if="$route.name !== 'admin'"
