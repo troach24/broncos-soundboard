@@ -1,8 +1,8 @@
 <template>
   <div class="panel-container">
     <div class="d-flex justify-between align-center mb-3">
-      <v-btn class="body-1 font-weight-regular" @click="all">Show All</v-btn>
-      <v-btn class="body-1 font-weight-regular" @click="none">Hide All</v-btn>
+      <v-btn @click="all">Show me the $$$</v-btn>
+      <v-btn @click="none">Hide me the $$$</v-btn>
     </div>
     <v-expansion-panel
       v-model="panel"
@@ -12,10 +12,9 @@
         v-for="(item,i) in items"
         :key="i"
       >
-        <v-text class="display-1 font-weight-light" v-if="i == 0" slot="header">Team</v-text>
-        <v-text slot="right">hello</v-text>
-        <v-text class="display-1 font-weight-light" v-if="i == 1" slot="header">Offense</v-text>
-        <v-text class="display-1 font-weight-light" v-if="i == 2" slot="header">Defense</v-text>
+        <h5 class="headline align-content-center" v-if="i == 0" slot="header">Team</h5>
+        <h5 class="headline" v-if="i == 1" slot="header">Offense</h5>
+        <h5 class="headline" v-if="i == 2" slot="header">Defense</h5>
         <v-card class="panel">
           <v-flex class="load" v-if="loading">
             <v-progress-circular

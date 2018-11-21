@@ -2,7 +2,7 @@
   <v-app dark>
     <NavBar />
     <v-content>
-      <router-view/>
+      <router-view />
     </v-content>
     <Footer />
   </v-app>
