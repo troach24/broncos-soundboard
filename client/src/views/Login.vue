@@ -62,10 +62,8 @@ export default {
         console.log(this.email, this.password)
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(user => {
           console.log('authorized')
-          console.log(this.$router.push)
-          this.$router.push('/admin')
+          this.$router.push('admin')
         })
-        // .then(this.$router.push('admin'))
           .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;

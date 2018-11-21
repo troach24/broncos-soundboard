@@ -8,15 +8,24 @@
 import firebase from 'firebase';
 
 export default {
-  methods: {
-    beforeRouteEnter() {
+  beforeRouteEnter (to, from, next) {
     console.log(firebase.auth().currentUser.emailVerified)
-      if(!firebase.auth().currentUser) {
-        this.$router.push('login')
-      } else {
-        console.log('yaKnoDeG');
-      }
+    if(!firebase.auth().currentUser) {
+      this.$router.push('login')
+    } else {
+      console.log('yaKnoDeG');
     }
+    next()
+  },
+  methods: {
+    // beforeRouteEnter() {
+    //   console.log(firebase.auth().currentUser.emailVerified)
+      // if(!firebase.auth().currentUser) {
+      //   this.$router.push('login')
+      // } else {
+      //   console.log('yaKnoDeG');
+      // }
+    // }
   }
 };
 </script>
