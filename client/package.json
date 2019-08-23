@@ -19,9 +19,9 @@
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
     "@mdi/font": "^2.7.94",
-    "@vue/cli-plugin-babel": "^3.0.0",
+    "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
-    "@vue/cli-service": "^3.0.0",
+    "@vue/cli-service": "^3.11.0",
     "@vue/eslint-config-airbnb": "^3.0.1",
     "babel-plugin-transform-imports": "^1.4.1",
     "font-awesome": "^4.7.0",
