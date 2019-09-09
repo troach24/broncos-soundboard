@@ -43,7 +43,7 @@ export default {
   async mounted() {
     if(this.sounds.length < 1) {
       this.loading = true;
-      this.sounds = filterSounds()
+      this.sounds = await this.filterSounds()
       this.sounds.reverse()
     }
     this.loading = false
@@ -71,7 +71,7 @@ export default {
       const res = await fetch(API_URL)
       return res.json()
     },
-    filterSounds() {
+    async filterSounds() {
       const allSounds = await this.getSounds()
       return allSounds.filter(sound => sound.archived !== true)
     }
