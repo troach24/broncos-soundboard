@@ -4,6 +4,8 @@ const db = require('./connection');
 const schema = Joi.object().keys({
   name: Joi.string().required(),
   category: Joi.string().required(),
+  year: Joi.number().integer().min(2018).max(2019),
+  archived: Joi.boolean();
   soundUrl: Joi.string().uri({
     scheme: [
       /https?/
