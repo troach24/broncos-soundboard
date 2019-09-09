@@ -41,6 +41,9 @@
 import firebase from 'firebase';
 
 export default {
+  props: [
+    user
+  ],
   data: () => ({
     valid: true,
     email: '',

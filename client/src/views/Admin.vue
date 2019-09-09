@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <v-text class="display-1 font-weight-thin">Welcome Web Master, you are the greatest Broncos Fan in the world! 🙌</v-text>
+        <v-text class="display-1 font-weight-thin">Coach Roach, you are the greatest Broncos Fan in the world! 🙌</v-text>
         <img
           src="https://s3.amazonaws.com/freebiesupply/large/2x/denver-broncos-logo-transparent.png"
           alt="Vuetify.js"
@@ -35,6 +35,7 @@ const API_URL = 'https://broncos-soundboard.herokuapp.com/sounds';
 
 export default {
   name: 'Home',
+  props: ['user'],
   components: {
     SoundButton,
     ExpansionPanel,

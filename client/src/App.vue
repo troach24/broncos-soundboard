@@ -1,8 +1,8 @@
 <template>
   <v-app dark>
-    <NavBar />
+    <NavBar :user="user"/>
     <v-content>
-      <router-view />
+      <router-view :user="user" />
     </v-content>
     <Footer />
   </v-app>
@@ -20,6 +20,7 @@ export default {
   },
   data () {
     return {
+      user: firebase.auth().currentUser
     }
   }
 }

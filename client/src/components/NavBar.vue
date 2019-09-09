@@ -8,7 +8,8 @@
         <v-toolbar-title v-text="title"></v-toolbar-title>
       </router-link>
       <v-spacer></v-spacer>
-      <v-chip v-if="$route.name == 'admin'" outline color="#FB4F14">Toggle Edit Mode</v-chip>
+      <v-chip v-if="$route.name === 'admin'" outline color="#FB4F14">Toggle Edit Mode</v-chip>
+      <v-chip v-if="$route.name === 'admin'" color="#FB4F14" click="logout()">Logout</v-chip>
       <v-tooltip bottom>
         <v-icon
           v-if="$route.name !== 'admin'"
@@ -24,6 +25,9 @@
 </template>
 
 <script>
+import firebase from 'firebase';
+import { log } from 'util';
+
 export default {
   name: 'NavBar',
   data () {
@@ -39,7 +43,12 @@ export default {
       ],
       miniVariant: false,
       title: 'BRONCO BITES'
+      // user: firebase.auth().currentUser
     }
+  },
+  mounted: () =>{
+    console.log(this.user.email);
+    
   },
   methods: {
     playSound (sound) {
@@ -47,6 +56,17 @@ export default {
         var audio = new Audio(sound);
         audio.play();
       }
+    },
+    logout() {
+      firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        console.log('sucess');
+        
+      }).catch(function(error) {
+        // An error happened.
+        console.log('Signout failed');
+        
+      });
     }
   },
 };
