@@ -26,7 +26,7 @@ const API_URL = 'https://broncos-soundboard.herokuapp.com/sounds';
 
 export default {
   name: 'Home',
-  // props: ['user'],
+  props: ['user'],
   components: {
     SoundButton,
     ExpansionPanel,
@@ -70,6 +70,10 @@ export default {
     async getSounds() {
       const res = await fetch(API_URL)
       return res.json()
+    },
+    filterSounds() {
+      const allSounds = await this.getSounds()
+      return allSounds.filter(sound => sound.archived !== true)
     }
   },
 }
