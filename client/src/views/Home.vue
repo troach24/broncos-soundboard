@@ -43,7 +43,7 @@ export default {
   async mounted() {
     if(this.sounds.length < 1) {
       this.loading = true;
-      this.sounds = await this.getSounds()
+      this.sounds = filterSounds()
       this.sounds.reverse()
     }
     this.loading = false
