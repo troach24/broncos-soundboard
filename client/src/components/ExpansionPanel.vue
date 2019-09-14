@@ -76,7 +76,8 @@ export default {
 .panel {
   display: flex;
   flex-flow: row wrap;
-  padding-left: 5px;
+  padding-left: 1em;
+  padding-right: 1em;
   padding-bottom: 10px;
 }
 .load {

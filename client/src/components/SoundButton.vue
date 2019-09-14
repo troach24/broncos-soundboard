@@ -22,6 +22,8 @@ export default {
 
 <style scoped>
 .button-width {
-  width: 225px;
+  width: 375px;
+  height: 70px;
+  font-size: x-large;
 }
 </style>
